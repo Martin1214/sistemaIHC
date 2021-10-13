@@ -22,6 +22,6 @@ class Home extends BaseController
     {
         $us = $this->db->selectUsuarios();
         $user['users'] = $us;
-        return  view('layouts/header') . view('vistas/usuarios', $user) . view('layouts/footer');
+        return   view('layouts/aside') . view('layouts/header') . view('vistas/usuarios', $user) . view('layouts/footer');
     }
 }
