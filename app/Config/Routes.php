@@ -33,6 +33,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/usuarios', 'Home::usuarios');
+$routes->get('/buscarC', 'Home::buscarC');
+$routes->post('/buscarC', 'Home::buscarC');
 
 /*
  * --------------------------------------------------------------------
