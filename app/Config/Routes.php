@@ -35,6 +35,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/usuarios', 'Home::usuarios');
 $routes->get('/buscarC', 'Home::buscarC');
 $routes->post('/buscarC', 'Home::buscarC');
+$routes->get('/cedula', 'Home::cedula');
+$routes->post('/cedula', 'Home::cedula');
 
 /*
  * --------------------------------------------------------------------

@@ -11,6 +11,7 @@ class Home extends BaseController
     public function __construct()
     {
         $this->db = new miModelo();
+        helper('validador_helper');
     }
 
     public function index()
@@ -28,12 +29,11 @@ class Home extends BaseController
     public function buscarC()
     {
         if (isset($_POST['uId'])) {
-            # code...
+
             $id = $_POST['uId'];
 
             $c = $this->db->selectUsusarioC($id);
             $us = $this->db->selectUsuarios();
-
 
             $datos['usuarios'] = $us;
             $datos['correo'] = $c;
@@ -46,6 +46,18 @@ class Home extends BaseController
             $user['correo'] = "";
 
             return   view('layouts/aside') . view('layouts/header') . view('vistas/buscarU', $user) . view('layouts/footer');
+        }
+    }
+    public function cedula()
+    {
+        if (isset($_POST['cedula'])) {
+            $resp = cedulaV($_POST['cedula']);
+
+            $r['msm'] = $resp;
+            return view('layouts/header') . view('layouts/aside') . view('vistas/cedula', $r) . view('layouts/footer');
+        } else {
+            $r['msm'] = "";
+            return view('layouts/header') . view('layouts/aside') . view('vistas/cedula', $r) . view('layouts/footer');
         }
     }
 }
