@@ -4,15 +4,13 @@
 
             <form action="<?php echo base_url('index.php/cedula'); ?>" method="Post">
 
-                <input type="text" name="cedula" value="">
+                <input type="number" name="cedula" value="" onKeyPress="if(this.value.length==10) return false;">
 
                 <input type="submit" value="Cedula">
             </form>
 
             <?php
-            if ($msm != "") {
-                print($msm);
-            }
+            print($msm);
             ?>
         </div>
     </div>

@@ -43,4 +43,18 @@ class miModelo extends Model
 
         return $correo;
     }
+
+    public function selectBuscarCed($ced)
+    {
+        $tab =  $this->db->table('tbl_datosp dp'); //confirmamos tabla
+        $tab->select('dp.DAP_ID, dp.DAP_NOMBRES, dp.DAP_CEDULA'); //select a la tabla
+
+        $tab->where('dp.DAP_CEDULA', $ced);
+
+        $query = $tab->get(); //hacemos la peticion
+
+        $cedula = $query->getResultArray(); //metemos la informacion a un arreglo
+
+        return $cedula;
+    }
 }

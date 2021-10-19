@@ -51,10 +51,16 @@ class Home extends BaseController
     public function cedula()
     {
         if (isset($_POST['cedula'])) {
-            $resp = cedulaV($_POST['cedula']);
 
-            $r['msm'] = $resp;
-            return view('layouts/header') . view('layouts/aside') . view('vistas/cedula', $r) . view('layouts/footer');
+            $cedula = $this->db->selectBuscarCed($_POST['cedula']);
+            if ($cedula != null) {
+                $ecuatoriano =   cedulaV($_POST['cedula']);
+                $r['msm'] = $ecuatoriano;
+                return view('layouts/header') . view('layouts/aside') . view('vistas/cedula', $r) . view('layouts/footer');
+            } else {
+                $r['msm'] = "NO REGISTROS";
+                return view('layouts/header') . view('layouts/aside') . view('vistas/cedula', $r) . view('layouts/footer');
+            }
         } else {
             $r['msm'] = "";
             return view('layouts/header') . view('layouts/aside') . view('vistas/cedula', $r) . view('layouts/footer');

@@ -16,9 +16,9 @@
           </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="./user.html">
+          <a class="nav-link" href="<?php echo base_url(); ?>/index.php/cedula">
             <i class="material-icons">person</i>
-            <p>User Profile</p>
+            <p>CEDULA</p>
           </a>
         </li>
         <li class="nav-item ">
