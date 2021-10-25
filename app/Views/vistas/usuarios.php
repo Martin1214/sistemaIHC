@@ -2,8 +2,9 @@
     <div class="container-fluid">
 
         <div class="row">
+
             <div class="card-body table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover table-dark">
                     <thead class="text-warning">
                         <th>#</th>
                         <th>Usuario</th>
@@ -15,7 +16,7 @@
 
                         $cont = 1;
 
-                        foreach ($users as $value) {
+                        foreach ($usuarios as $value) {
                             print("<tr>");
                             print("<td>" . $cont . "</td> <td>" . $value['USU_USUARIO'] . "</td> <td>" . $value['DAP_NOMBRES'] . "</td> <td>" . $value['DAP_CORREO'] . "</td>");
                             print("</tr>");
@@ -26,6 +27,9 @@
                     </tbody>
                 </table>
             </div>
+
         </div>
+
     </div>
+
 </div>

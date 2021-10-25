@@ -1,7 +1,7 @@
 <?php
 function cedulaV($cedula)
 {    //AQUI SE VALIDA CEDULA ECUATORIANA
-    if (strlen($cedula) > 10) {
+    if (strlen($cedula) ===  10) {
         $sum = 0;
         $sumi = 0;
         for ($i = 0; $i < strlen($cedula) - 2; $i++) {

@@ -8,10 +8,10 @@
                 <select id="usuarioId" name="uId" data-rel=" choosen">
                     <?php
                     if ($usuarios != "") {
-                        foreach ($usuarios as $value) {
-                            # code...
-                            print("<option value='" . $value['USU_ID'] . "'>" . $value['DAP_NOMBRES'] . "</option>");
-                        }
+                            foreach ($usuarios as $value) {
+                                # code...
+                                print("<option value='" . $value['USU_ID'] . "'>" . $value['DAP_NOMBRES'] . "</option>");
+                            }
                     }
                     ?>
                 </select>
@@ -19,12 +19,7 @@
             </form>
 
             <?php
-            if ($correo != "") {
-                foreach ($correo as $value) {
-                    # code...
-                    print($value['DAP_CORREO']);
-                }
-            }
+
             ?>
         </div>
     </div>

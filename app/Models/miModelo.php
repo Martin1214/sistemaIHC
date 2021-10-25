@@ -57,4 +57,31 @@ class miModelo extends Model
 
         return $cedula;
     }
+
+    public function insetUsuarios($u, $c, $m)
+    {
+        $tab =  $this->db->table('tbl_datosp'); //confirmamos tabla
+        $datos = ['DAP_NOMBRES' => $u, 'DAP_CORREO' => $m, 'DAP_CEDULA' => $c];
+        $tab->insert($datos);
+    }
+
+    public function agregarU($u, $c, $dp, $e)
+    {
+        $tab =  $this->db->table('tbl_usuarios'); //confirmamos tabla
+        $datos = ['USU_USUARIO' => $u, 'USU_CLAVE' => $c, 'USU_ESTADO' => $e, 'DAP_ID' => $dp];
+        $tab->insert($datos);
+    }
+
+    public function selectDatosP()
+    {
+        $tab =  $this->db->table('tbl_datosp dp'); //confirmamos tabla
+        $tab->select('dp.DAP_ID, dp.DAP_NOMBRES'); //select a la tabla
+
+        //$tab->where('dp.DAP_CEDULA');
+
+        $query = $tab->get(); //hacemos la peticion
+
+        $cedula = $query->getResultArray(); //metemos la informacion a un arreglo
+        return $cedula;
+    }
 }

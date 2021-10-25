@@ -22,7 +22,7 @@ class Home extends BaseController
     public function usuarios()
     {
         $us = $this->db->selectUsuarios();
-        $user['users'] = $us;
+        $user['usuarios'] = $us;
         return   view('layouts/aside') . view('layouts/header') . view('vistas/usuarios', $user) . view('layouts/footer');
     }
 
@@ -64,6 +64,49 @@ class Home extends BaseController
         } else {
             $r['msm'] = "";
             return view('layouts/header') . view('layouts/aside') . view('vistas/cedula', $r) . view('layouts/footer');
+        }
+    }
+
+    public function nuevoU()//insertar dp
+    {
+        if (isset($_POST['nombre'])) {
+
+            $n = $_POST['nombre'];
+            $c = $_POST['cedula'];
+            $co = $_POST['correo'];
+
+            $this->db->insetUsuarios($n, $c, $co);
+
+            $datos = $this->db->selectDatosP();
+            $d['dato'] = $datos;
+
+            return view('layouts/header') . view('layouts/aside') . view('vistas/nuevoU', $d) . view('layouts/footer');
+        } else {
+
+            $d['dato'] = "";
+            return view('layouts/header') . view('layouts/aside') . view('vistas/nuevoU', $d) . view('layouts/footer');
+        }
+    }
+
+    public function agregarU()//insertU
+    {
+        if (isset($_POST['usuario'])) {
+
+            $u = $_POST['usuario'];
+            $c = $_POST['cedula'];
+            $dp = $_POST['uId'];
+            $e = 1;
+
+            $this->db->agregarU($u, $c, $dp, $e);
+
+            $us = $this->db->selectUsuarios();
+
+            $user['usuarios'] = $us;
+
+            return view('layouts/header') . view('layouts/aside') . view('vistas/usuarios', $user) . view('layouts/footer');
+        } else {
+            $user['users'] = '';
+            return view('layouts/header') . view('layouts/aside') . view('saludo') . view('layouts/footer');
         }
     }
 }
