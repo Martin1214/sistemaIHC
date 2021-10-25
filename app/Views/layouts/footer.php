@@ -86,11 +86,11 @@
                 <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank" class="btn btn-primary btn-block">Free Download</a>
             </li>
             <!-- <li class="header-title">Want more components?</li>
-              <li class="button-container">
-                  <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
+            <li class="button-container">
+                <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
                     Get the pro version
-                  </a>
-              </li> -->
+                </a>
+            </li> -->
             <li class="button-container">
                 <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
                     View Documentation
@@ -332,6 +332,14 @@
         md.initDashboardPageCharts();
 
     });
+</script>
+
+<script>
+    function updatePass(id) {
+        document.getElementById("passC").style.display = "block";
+        document.getElementById("idU").value = id;
+        //  alert(id);
+    }
 </script>
 
 

@@ -77,11 +77,18 @@ class miModelo extends Model
         $tab =  $this->db->table('tbl_datosp dp'); //confirmamos tabla
         $tab->select('dp.DAP_ID, dp.DAP_NOMBRES'); //select a la tabla
 
-        //$tab->where('dp.DAP_CEDULA');
-
         $query = $tab->get(); //hacemos la peticion
 
         $cedula = $query->getResultArray(); //metemos la informacion a un arreglo
         return $cedula;
+    }
+
+    public function updateC($id, $pass)
+    {
+        # code...
+        $sql =  $this->db->table('tbl_usuarios'); //confirmamos tabla
+        $sql->where('USU_ID', $id);
+        $sql->set('USU_CLAVE', $pass);
+        $sql->update();
     }
 }

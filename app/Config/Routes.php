@@ -46,7 +46,7 @@ $routes->post('/nuevoU', 'Home::nuevoU');
 $routes->get('/agregarU', 'Home::agregarU');
 $routes->post('/agregarU', 'Home::agregarU');
 
-
+$routes->post('/updatePass', 'Home::updatePass');
 
 /*
  * --------------------------------------------------------------------

@@ -67,7 +67,7 @@ class Home extends BaseController
         }
     }
 
-    public function nuevoU()//insertar dp
+    public function nuevoU() //insertar dp
     {
         if (isset($_POST['nombre'])) {
 
@@ -88,7 +88,7 @@ class Home extends BaseController
         }
     }
 
-    public function agregarU()//insertU
+    public function agregarU() //insertU
     {
         if (isset($_POST['usuario'])) {
 
@@ -107,6 +107,22 @@ class Home extends BaseController
         } else {
             $user['users'] = '';
             return view('layouts/header') . view('layouts/aside') . view('saludo') . view('layouts/footer');
+        }
+    }
+
+    public function updatePass()
+    {
+        if (isset($_POST['pass'])) {
+
+            $id = $_POST['id'];
+            $pass = $_POST['pass'];
+
+            $this->db->updateC($id, $pass);
+            $u = $this->db->selectUsuarios();
+
+            $user['usuarios'] = $u;
+
+            return view('layouts/header') . view('layouts/aside') . view('vistas/usuarios', $user) . view('layouts/footer');
         }
     }
 }
