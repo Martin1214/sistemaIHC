@@ -335,12 +335,38 @@
 </script>
 
 <script>
-    function updatePass(id) {
-        document.getElementById("passC").style.display = "block";
+    function cargar(id, nom, ced, tel, dir) {
         document.getElementById("idU").value = id;
-        //  alert(id);
+        document.getElementById("nombreA").value = nom;
+        document.getElementById("cedulaA").value = ced;
+        document.getElementById("telefonoA").value = tel;
+        document.getElementById("direccionA").value = dir;
+
+        //    alert ('entras');
     }
 </script>
 
+<script type="text/javascript">
+    function soloNumeros(e) {
+        let key = window.event ? e.which : e.keyCode; //alamacena la entrada del teclado
+        teclado = String.fromCharCode(key);
+
+        let numero = "1234567890";
+
+        let especiales = "8-37-38-46"; //array
+
+        let tecladoEspecial = false;
+
+        for (let i in especiales) {
+            if (key === especiales[i]) {
+                tecladoEspecial = true;
+            }
+        }
+
+        if (numero.indexOf(teclado) === -1 && !tecladoEspecial) {
+            return false;
+        }
+    }
+</script>
 
 </html>

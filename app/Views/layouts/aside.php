@@ -34,9 +34,9 @@
           </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="./icons.html">
+          <a class="nav-link" href="<?php echo base_url(); ?>/index.php/select">
             <i class="material-icons">bubble_chart</i>
-            <p>Icons</p>
+            <p>PARCIAL</p>
           </a>
         </li>
         <li class="nav-item ">

@@ -48,6 +48,17 @@ $routes->post('/agregarU', 'Home::agregarU');
 
 $routes->post('/updatePass', 'Home::updatePass');
 
+$routes->get('/select', 'Home::selectParcial');
+
+$routes->post('/insert', 'Home::insertParcial');
+
+$routes->post('/update', 'Home::updateParcial');
+
+
+$routes->resource('restuser', ['controller' => 'restuser']);
+
+$routes->post('sumar', 'RestUser::sumar');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

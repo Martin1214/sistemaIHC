@@ -125,4 +125,67 @@ class Home extends BaseController
             return view('layouts/header') . view('layouts/aside') . view('vistas/usuarios', $user) . view('layouts/footer');
         }
     }
+
+    public function selectParcial()
+    {
+        $u = $this->db->selectParcial();
+        $user['usuarios'] = $u;
+        return view('layouts/header') . view('layouts/aside') . view('vistas/parcial', $user) . view('layouts/footer');
+    }
+
+    public function insertParcial()
+    {
+
+        if (isset($_POST['nombre'])) {
+
+            $nom = $_POST['nombre'];
+            $ced = $_POST['cedula'];
+            $tel = $_POST['telefono'];
+            $dir = $_POST['direccion'];
+
+            $cedula = $this->db->cedulaParcial($_POST['cedula']);
+
+            if (cedulaV($ced) === "Cedula valida!") {
+                if ($cedula == null) {
+                    $this->db->insertParcial($nom, $ced, $tel, $dir);
+                } else {
+                    echo '<script language="javascript">alert("Cedula repetida \n' . $ced . '");</script>';
+                }
+            } else {
+                echo '<script language="javascript">alert("Cedula No Ecuatoriana \n' . $ced . '");</script>';
+            }
+
+
+            echo "<script language='javascript'>window.location.replace('http://localhost/sistemaIHC/index.php/select');</script>";
+        } else {
+            echo "<script language='javascript'>window.location.replace('http://localhost/sistemaIHC/index.php/select');</script>";
+        }
+    }
+
+    public function updateParcial()
+    {
+
+        if (isset($_POST['nombreA'])) {
+
+            $id = $_POST['idU'];
+            $nom = $_POST['nombreA'];
+            $ced = $_POST['cedulaA'];
+            $tel = $_POST['telefonoA'];
+            $dir = $_POST['direccionA'];
+
+            if (cedulaV($ced) === "Cedula valida!") {
+                # code...
+                $this->db->updateParcial($id, $nom, $ced, $tel, $dir);
+            } else {
+                echo '<script language="javascript">alert("Cedula No Ecuatoriana \n' . $ced . '");</script>';
+            }
+
+            $u = $this->db->selectParcial();
+            $user['usuarios'] = $u;
+            // return view('layouts/header') . view('layouts/aside') . view('vistas/parcial', $user) . view('layouts/footer');
+            echo "<script language='javascript'>window.location.replace('http://localhost/sistemaIHC/index.php/select');</script>";
+        } else {
+            echo "<script language='javascript'>window.location.replace('http://localhost/sistemaIHC/index.php/select');</script>";
+        }
+    }
 }
