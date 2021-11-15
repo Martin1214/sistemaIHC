@@ -58,6 +58,9 @@ $routes->post('/update', 'Home::updateParcial');
 $routes->resource('restuser', ['controller' => 'restuser']);
 
 $routes->post('sumar', 'RestUser::sumar');
+$routes->post('insert', 'RestUser::insert');
+
+$routes->post('updates', 'RestUser::updates');
 
 /*
  * --------------------------------------------------------------------
