@@ -62,6 +62,8 @@ $routes->post('insert', 'RestUser::insert');
 
 $routes->post('updates', 'RestUser::updates');
 
+$routes->post('traductor', 'RestUser::traductor');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

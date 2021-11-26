@@ -24,7 +24,6 @@ class restUser extends ResourceController
     {
         $n1 = $_REQUEST['n1'];
         $n2 = $_REQUEST['n2'];
-
         $arr = sumarNum($n1, $n2);
         echo json_encode($arr);
     }
@@ -67,6 +66,14 @@ class restUser extends ResourceController
                 "code" => "200"
             ));
         }
+    }
+
+    public function traductor()
+    {
+        $palabra = $_REQUEST['palabra'];
+        
+        $arr = traducirPal($palabra);
+        echo json_encode($arr);
     }
 
     public function genericResponse($data, $msj, $code)
